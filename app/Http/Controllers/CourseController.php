@@ -11,11 +11,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CourseController extends Controller
 {
-    public function index(): JsonResponse
-    {
-        return response()->json(Course::get());
-    }
-
     public function bests(): ResourceCollection
     {
         $courses = Course::withAvg('ratings', 'value')
