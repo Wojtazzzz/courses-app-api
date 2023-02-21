@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Course\BestResource;
 use App\Models\Course;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CourseController extends Controller
 {
@@ -14,7 +16,7 @@ class CourseController extends Controller
         return response()->json(Course::get());
     }
 
-    public function bests(): JsonResponse
+    public function bests(): ResourceCollection
     {
         $courses = Course::withAvg('ratings', 'value')
             ->orderBy('ratings_avg_value', 'desc')
@@ -27,6 +29,6 @@ class CourseController extends Controller
                 'sales',
             ]);
 
-        return response()->json($courses);
+        return BestResource::collection($courses);
     }
 }
