@@ -20,7 +20,7 @@ class BestResource extends JsonResource
             'price' => $this->price,
             'thumbnail' => $this->thumbnail,
             'sales' => $this->sales,
-            'rating' => $this->ratings_avg_value,
+            'rating' => floatval($this->ratings_avg_value),
         ];
     }
 }
