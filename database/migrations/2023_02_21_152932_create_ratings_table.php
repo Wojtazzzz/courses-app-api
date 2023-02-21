@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->integer('value')->min(0)->max(5);
             $table->timestamps();
+
+            $table->unique(['course_id', 'user_id']);
         });
     }
 
