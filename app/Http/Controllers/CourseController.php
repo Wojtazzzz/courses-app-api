@@ -16,6 +16,17 @@ class CourseController extends Controller
 
     public function bests(): JsonResponse
     {
-        return response()->json(Course::limit(3)->get());
+        $courses = Course::withAvg('ratings', 'value')
+            ->orderBy('ratings_avg_value', 'desc')
+            ->limit(3)
+            ->get([
+                'id',
+                'name',
+                'price',
+                'thumbnail',
+                'sales',
+            ]);
+
+        return response()->json($courses);
     }
 }
