@@ -11,8 +11,11 @@ class CourseController extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json([
-            'courses' => Course::get()
-        ]);
+        return response()->json(Course::get());
+    }
+
+    public function bests(): JsonResponse
+    {
+        return response()->json(Course::limit(3)->get());
     }
 }

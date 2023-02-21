@@ -13,4 +13,5 @@ Route::prefix('/courses')
     ->controller(CourseController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/bests', 'bests')->name('bests');
     });
