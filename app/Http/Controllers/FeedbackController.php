@@ -11,6 +11,7 @@ class FeedbackController extends Controller
     public function index(): JsonResource
     {
         $feedback = Feedback::inRandomOrder()
+            ->limit(10)
             ->get([
                 'id',
                 'content',
