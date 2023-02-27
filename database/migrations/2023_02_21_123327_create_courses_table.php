@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('price', places: 2);
-            $table->string('thumbnail')->default(config('app.url') . Storage::url('courses/default-course-thumbnail.jpg'));
+            $table->string('thumbnail')->default(config('app.url') . '/default-course-thumbnail.jpg');
             $table->integer('sales')->default(0);
             $table->timestamps();
         });
