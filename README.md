@@ -11,7 +11,7 @@ Courses App Api was built using the following technologies:
 
 ## Live Preview
 
-[Continoues Integration]
+[Fly.io](https://delicate-thunder-4339.fly.dev/)
 
 ## Installation
 
